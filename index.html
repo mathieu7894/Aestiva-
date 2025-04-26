@@ -1,0 +1,688 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+   <link rel="Website Icon" type="png" href="tesmoche.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aestiva</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&libraries=places"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+</head>
+<body>
+
+    <div class="banner">
+        <div class="banner__contents">
+            <h1 class="banner__title"></h1>
+            <div class="search-wrapper">
+               <div class="input-holder">
+                   <input type="text" class="search-input" placeholder="Type to search" />
+                   <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+               </div>
+               <span class="close" onclick="searchToggle(this, event);"></span>
+            </div>
+            <nav id="menu">
+               <div class="menu-item">
+                   <div class="menu-text">
+                       <a href="#">Ajouter </a>
+                   </div>
+                   <div class="sub-menu">
+                       <div class="icon-box">
+                           <div class="icon"><i class="fal fa-wind-turbine"></i></div>
+                           <div class="text">
+                               <div class="title">Vous êtes un comité des fêtes  <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">faites connaitre votre évènement local</div>
+                           </div>
+                       </div>
+                       <div class="icon-box">
+                           <div class="icon"><i class="fal fa-lightbulb-on"></i></div>
+                           <div class="text">
+                               <div class="title">Vous êtes un particulier <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">partagez votre évènement sur notre plateforme</div>
+                           </div>
+                       </div>
+                       <div class="icon-box">
+                           <div class="icon"><i class="fal fa-bomb"></i></div>
+                           <div class="text">
+                               <div class="title">Vous êtes une entreprise d'évènementiel <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">faites vous référencer sur notre site et notre application</div>
+                           </div>
+                       </div>
+                       <div class="sub-menu-holder"></div>
+                   </div>
+               </div>
+
+               <div class="menu-item highlight">
+                   <div class="menu-text">
+                       <a href="#">Catégories</a>
+                   </div>
+                   <div class="sub-menu double">
+                       <div class="icon-box gb a">
+                           <div class="icon"><i class="far fa-question-circle"></i></div>
+                           <div class="text">
+                               <div class="title">Fêtes de Villages <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">bandas, bal musette, activité en tout genre</div>
+                           </div>
+                       </div>
+                       <div class="icon-box gb b">
+                           <div class="icon"><i class="far fa-users-class"></i></div>
+                           <div class="text">
+                               <div class="title">Concert <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">Venez écouter vos chanteurs préféré </div>
+                           </div>
+                       </div>
+                       <div class="icon-box gb c">
+                           <div class="icon"><i class="far fa-school"></i></div>
+                           <div class="text">
+                               <div class="title">Fête Foraine <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">faites le pleins de sensations fortes</div>
+                           </div>
+                       </div>
+                       <div class="icon-box gb d">
+                           <div class="icon"><i class="far fa-chess-rook"></i></div>
+                           <div class="text">
+                               <div class="title">Festival <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">Vivez l'émotion des festivals, de la musique et des moments inoubliables</div>
+                           </div>
+                       </div>
+                       <div class="icon-box gb e">
+                           <div class="icon"><i class="far fa-video-plus"></i></div>
+                           <div class="text">
+                               <div class="title">DanceFloor <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">Dancez aux rythme des platines</div>
+                           </div>
+                       </div>
+                       
+                       <div class="bottom-container">
+                           Du mal a choisir? <a href="#">Parcourir les catégories</a>
+                       </div>
+                       <div class="sub-menu-holder"></div>
+                   </div>
+               </div>
+               <div class="menu-item highlight">
+                   <div class="menu-text">
+                       <a href="#">Support</a>
+                   </div>
+                   <div class="sub-menu triple">
+                       <div class="top-container gb c icon-box">
+                           <div class="icon big"><i class="far fa-book"></i></div>
+
+                       </div>
+                       <div class="box">
+                           
+                           <a href="#">Qui sommes nous?</a>
+                           <a href="#">Conditions d'utilisation</a>
+                           <a href="#">Politique de confidentialité</a>
+                           <a href="#">Gestion des cookies</a>
+                       </div>
+                       <div class="box">
+                           
+                           <a href="#">Nous contacter</a>
+                           <a href="#">Partenaria</a>
+                           <a href="#">Offre Comerciale</a>
+                           <a href="#">Mentions Légales</a>
+                       </div>
+                       <div class="icon-box flat">
+                           <div class="icon"><i class="fal fa-plug"></i></div>
+                           <div class="text">
+                        
+                           </div>
+                       </div>
+                       <div class="icon-box flat">
+                           <div class="icon"><i class="fal fa-comments"></i></div>
+                           <div class="text">
+                               
+                           </div>
+                       </div>
+                       <div class="icon-box flat">
+                           <div class="icon"><i class="fal fa-phone-volume"></i></div>
+                           <div class="text">
+                               <div class="title">License <i class="far fa-arrow-right"></i></div>
+                           </div>
+                       </div>
+                       <div class="icon-box flat">
+                           <div class="icon"><i class="fal fa-book-spells"></i></div>
+                           <div class="text">
+                               <div class="title">Documentation <i class="far fa-arrow-right"></i></div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <div class="menu-item">
+                   <div class="menu-text">
+                       <a href="#">Communauté</a>
+                   </div>
+                   <div class="sub-menu">
+                       <div class="icon-box">
+                           <div class="icon"><i class="far fa-satellite"></i></div>
+                           <div class="text">
+                               <div class="title">FAQ <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">Foire aux questions</div>
+                           </div>
+                       </div>
+                       <div class="icon-box">
+                           <div class="icon"><i class="fab fa-twitter-square"></i></div>
+                           <div class="text">
+                               <div class="title">TikTok <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">Suivez Nous sur TikTok</div>
+                           </div>
+                       </div>
+                       <div class="icon-box">
+                           <div class="icon"><i class="fab fa-twitch"></i></div>
+                           <div class="text">
+                               <div class="title">Instagram <i class="far fa-arrow-right"></i></div>
+                               <div class="sub-text">Suivez nous sur insta</div>
+                           </div>
+                       </div>
+                       <div class="sub-menu-holder"></div>
+                   </div>
+               </div>
+               <div id="sub-menu-container">
+                   <div id="sub-menu-holder">
+                       <div id="sub-menu-bottom">
+   
+                       </div>
+                   </div>
+               </div>
+           </nav>
+   
+
+         </div>
+    </div>
+   <div class="hero-nav">
+      <div class="hero-nav__inner">
+          <h1></h1>
+          <div class="hero-nav__button">
+              <a href="#" class="btn"></a>
+          </div>
+      </div>
+  </div>
+  
+  </div>
+
+
+  <div class="wrap">
+    <div class="search">
+       <input type="text" class="searchTerm" placeholder="Votre Ville?">
+       <button type="submit" class="searchButton"><span class="material-symbols-outlined">
+        search
+        </span>
+         <i class="fa fa-search"></i>
+      </button>
+    </div>
+ </div>
+    <div class="carousel">
+        <div class="carousel__container carousel__container--1">
+            <h1>JUILLET</h1>
+            <div class="carousel__images">
+               <article class="card">
+                <div class="adresse">Le Bourg, Puyjourdes 46260</div>
+                  <div class="card__thumb">
+                    <img src="https://cdt46.media.tourinsoft.com/upload/unnamed-23.png" alt="">
+                  </div>
+                  <div class="pay-icon">PAYANT 10€
+                   </div>
+                 <div class="card__date">
+                    <span class="card__date__day">25</span>
+                    <span class="card__date__month">Juin</span>
+                 </div> 
+                 <div class="card__hour">
+                    <span>19h</span>
+                 </div>
+                 <div class="card__body">
+                    <div class="card__category"><a href="LIEN">Concert</a></div>
+                    <h2 class="card__title"><a href="pages.html">Concert au skatepark</a></h2>
+                    <p class="card__description">
+                       
+                        - octo bone's (rock) <br>
+                        - frenchgoma (rap) <br>
+                        - 46 rimes(rap) <br> 
+                        - known limit (dj set electro) <br>
+                        - frenchgoma (rap) 46 rimes(rap) <br>
+                        - known limit (dj set electro) <br>
+                    </p>
+                 </div>
+                 <footer class="card__footer">
+                   <span class="icon--time"><a href="https://www.google.com/maps/place/46260+Puyjourdes/@44.406159,1.8521739,14z/data=!3m1!4b1!4m6!3m5!1s0x12ad004091b71175:0x406f69c2f3fc2e0!8m2!3d44.407424!4d1.860472!16s%2Fm%2F03nwlmd?entry=ttu" target="_blank"><strong>Le Bourg, Puyjourdes 46260</strong></span></a>
+                    <span class="icon--comment"></span><a href="LIEN"> 65 10 85 41 ou 06 51 73 01 57</a>
+                 </footer>
+
+                </article> 
+                <article class="card"> 
+                  <div class="adresse">Leyme</div>
+                    <a href="LIEN_DE_LA_PAGE_CIBLE">
+                      <div class="card__thumb">
+                        <img src="https://www.leyme.fr/fileadmin/_processed_/8/2/csm_Fete_de_LEYME_juin_2023_134e0bc0a1.png" alt="">
+                      </div>
+                      <div class="free-icon">GRATUIT</div>
+                      <div class="card__date">
+                        <span class="card__date__day">27</span>
+                        <span class="card__date__month">Juin</span>
+                      </div> 
+                      <div class="heuregrosse">
+                        <span>8h-00h</span>
+                      </div>
+                      <div class="card__body">
+                        <div class="card__category"><a href="LIEN_DE_LA_PAGE_CIBLE">Fête de Village</a></div>
+                        <h2 class="card__title"><a href="LIEN_DE_LA_PAGE_CIBLE">Leyme Fête Votive</a></h2>
+                        <p class="card__description">
+                          <strong>8h</strong>- concours de pêche<br>
+                          <strong>11h</strong> - huîtres et vin blanc<br>
+                          <strong>13h</strong> - expo véhicules anciens<br>
+                          <strong>15h</strong> - spectacles enfants<br>  
+                          <strong>19h30</strong> - apéro bandas<br>
+                          <strong>20h</strong> - repas dansant<br>
+                          <strong>23h</strong> - feux d'artifice
+                        </p>
+                      </div>
+                      <footer class="card__footer">
+                        <span class="icon--time"><strong>Leyme 46170</strong></span> 
+                        <span class="icon--comment"></span><a href="LIEN_DE_LA_PAGE_CIBLE">65 10 85 41 ou 06 51 73 01 57</a>
+                      </footer>
+                    </a>
+                  </article>
+                  
+
+                  <article class="card" data-latitude="44.73675023518532" data-longitude="1.3809713777663315">
+                    <div class="card__thumb">
+                      <img src="https://api.cloudly.space/resize/clip/1900/1080/75/aHR0cHM6Ly9jZHQ0Ni5tZWRpYS50b3VyaW5zb2Z0LmV1L3VwbG9hZC90aHVtYm5haWwtODl5TkhXOXM1eWtRN3MwYy5wbmc=/image.jpg" alt="">
+                    </div>
+                   <div class="card__date">
+                      <span class="card__date__day">26</span>
+                      <span class="card__date__month">Juin</span>
+                   </div> 
+                   <div class="card__hour">
+                     <span>19h</span>
+                  </div>
+                  <div class="pay-icon">PAYANT 20€
+                   </div>
+                   <div class="card__body">
+                      <div class="card__category"><a href="LIEN">Concert</a></div>
+                      <h2 class="card__title"><a href="LIEN">Crayssacophonies</a></h2>
+                      <p class="card__description">
+                        <strong> Serge Albarel </strong>: ” Les années Carpentier” (soirée variété française) au camping. <br>
+                        Des années 70 aux années 90 vous pourrez entendre des titres connus (Joe Dassin, Johnny Halliday, Michel Sardou, Eddy Mitchell, Julio Iglesias, Michel Delpech, Gilbert Bécaud…) et bien d’autres . L’entrée est à 10€
+                        En préambule à 19h30, vous sera servi un repas paëlla : apéritif + paëlla : 10€ (Boissons et dessert en supplément). N’oubliez pas vos couverts.
+                        Concert et repas: 20€
+                        <strong>Réservation obligatoire</strong>, voir numéro
+                        Places limitées , réserver avant le 3 juin, merci
+                        
+                      </p>
+                   </div>
+                   <footer class="card__footer">
+                      <span class="icon--time"> <strong>Crayssac</strong></span> 
+                      <span class="icon--comment"></span><a href="LIEN">06.42.55.26.09 ou 06.82.44.10.58</a>
+                   </footer>
+                </article>
+
+
+ 
+
+
+            </div>
+            <button class="carousel__button carousel__button--left carousel__button--1">&lt;</button>
+            <button class="carousel__button carousel__button--right carousel__button--1">&gt;</button>
+        </div>
+    </div>
+
+
+
+ 
+    
+    <div class="carousel">
+        <div class="carousel__container carousel__container--2">
+            <h1>AOUT</h1>
+            <div class="carousel__images--2">
+               <article class="card">
+               <a href="LIEN">
+                  <div class="card__thumb">
+                    <img src="https://cdt46.media.tourinsoft.com/upload/unnamed-23.png" alt="">
+                  </div>
+                 <div class="card__date">
+                    <span class="card__date__day">24</span>
+                    <span class="card__date__month">Juin</span>
+                 </div> 
+                 <div class="card__hour">
+                    <span>19h</span>
+                 </div>
+                 <div class="free-icon">GRATUIT</div>
+                 <div class="card__body">
+                  
+                    <div class="card__category"><a href="LIEN">Concert</a></div>
+                    <h2 class="card__title"><a href="pages.html">Concert au skatepark</a></h2>
+                    <p class="card__description">
+                     
+                       
+                        - octo bone's (rock) <br>
+                        - frenchgoma (rap) <br>
+                        - 46 rimes(rap) <br> 
+                        - known limit (dj set electro) <br>
+                        - frenchgoma (rap) 46 rimes(rap) <br>
+                        - known limit (dj set electro) <br>
+                       <u><strong> <a href="LIEN">-Voir Plus...</a></strong></u>
+                    </p>
+                 </div>
+                 <footer class="card__footer">
+                   <span class="icon--time"><a href="https://www.google.com/maps/place/46260+Puyjourdes/@44.406159,1.8521739,14z/data=!3m1!4b1!4m6!3m5!1s0x12ad004091b71175:0x406f69c2f3fc2e0!8m2!3d44.407424!4d1.860472!16s%2Fm%2F03nwlmd?entry=ttu" target="_blank"><strong>Le Bourg, Puyjourdes 46260</strong></span></a>
+                    <span class="icon--comment"></span><a href="LIEN"> 65 10 85 41 ou 06 51 73 01 57</a>
+                 </footer>
+               
+                </article></a>
+                <article class="card">
+                    <div class="card__thumb">
+                      <img src="https://www.leyme.fr/fileadmin/_processed_/8/2/csm_Fete_de_LEYME_juin_2023_134e0bc0a1.png" alt="">
+                    </div>
+                   <div class="card__date">
+                      <span class="card__date__day">25</span>
+                      <span class="card__date__month">Juin</span>
+                   </div> 
+                   <div class="heuregrosse">
+                      <span>8h-00h</span>
+                   </div>
+                   <div class="card__body">
+                      <div class="card__category"><a href="LIEN">Fête de Village</a></div>
+                      <h2 class="card__title"><a href="LIEN">Leyme Fête Votive</a></h2>
+                      <p class="card__description">
+                         <strong>8h</strong>- concours de peche  <br>         
+                         <strong>11h</strong>   - huitres et vin blanc <br>
+                         <strong>13h</strong>  - expo véhicules anciens <br>
+                         <strong>15h</strong>  - spectacles enfants <br>  
+                         <strong>19h30</strong> - apéro bandas <br>
+                         <strong>20h</strong> - repas dansant <br>
+                         <strong>23</strong>- feux d'artifice
+                      </p>
+                   </div>
+                   <footer class="card__footer">
+                      <span class="icon--time"> <strong> Leyme 46170</strong></span> 
+                      <span class="icon--comment"></span><a href="LIEN"> 65 10 85 41 ou 06 51 73 01 57</a>
+                   </footer>
+                </article>
+
+                <article class="card">
+                    <div class="card__thumb">
+                      <img src="https://api.cloudly.space/resize/clip/1900/1080/75/aHR0cHM6Ly9jZHQ0Ni5tZWRpYS50b3VyaW5zb2Z0LmV1L3VwbG9hZC90aHVtYm5haWwtODl5TkhXOXM1eWtRN3MwYy5wbmc=/image.jpg" alt="">
+                    </div>
+                   <div class="card__date">
+                      <span class="card__date__day">10</span>
+                      <span class="card__date__month">Juin</span>
+                   </div> 
+                   <div class="card__hour">
+                     <span>19h</span>
+                  </div>
+                   <div class="card__body">
+                      <div class="card__category"><a href="LIEN">Concert</a></div>
+                      <h2 class="card__title"><a href="LIEN">Crayssacophonies</a></h2>
+                      <p class="card__description">
+                        <strong> Serge Albarel </strong>: ” Les années Carpentier” (soirée variété française) au camping. <br>
+                        Des années 70 aux années 90 vous pourrez entendre des titres connus (Joe Dassin, Johnny Halliday, Michel Sardou, Eddy Mitchell, Julio Iglesias, Michel Delpech, Gilbert Bécaud…) et bien d’autres . L’entrée est à 10€
+                        En préambule à 19h30, vous sera servi un repas paëlla : apéritif + paëlla : 10€ (Boissons et dessert en supplément). N’oubliez pas vos couverts.
+                        Concert et repas: 20€
+                        <strong>Réservation obligatoire</strong>, voir numéro
+                        Places limitées , réserver avant le 3 juin, merci
+                        
+                      </p>
+                   </div>
+                   <footer class="card__footer">
+                      <span class="icon--time"> <strong>Crayssac</strong></span> 
+                      <span class="icon--comment"></span><a href="LIEN">06.42.55.26.09 ou 06.82.44.10.58</a>
+                   </footer>
+                </article>
+
+
+                <article class="card">
+                  <div class="card__thumb">
+                    <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=578x10000:format=png/path/sdedc02aa2a30d06c/image/i9a9a031e21419cbe/version/1684355852/image.png" alt="">
+                  </div>
+                 <div class="card__date">
+                    <span class="card__date__day">30</span>
+                    <span class="card__date__month">Juin</span>
+                 </div> 
+                 <div class="heuregrosse">
+                    <span>8h-00h</span>
+                 </div>
+                 <div class="card__body">
+                    <div class="card__category"><a href="LIEN">Fête de Village</a></div>
+                    <h2 class="card__title"><a href="LIEN">Fete de Linac</a></h2>
+                    <p class="card__description">
+                     <strong>08h</strong> Déjeuner tripoux servi par les chasseurs.
+                     <strong>10h45</strong>  Dépôt de gerbe au monument aux morts. 
+                     <strong>11h</strong>  Messe de Saint-Clair 
+                     <strong>12h</strong>  Vin d'honneur <br>
+                     <strong>12h30</strong>  repas jambon à la broche/ Truffade sur réservation18€.
+                     <strong> 19h</strong>  Concert avec La Chanson'nette
+                     <strong>19h15</strong>  Marché gourmand, venez composer votre repas sur les stands de producteurs.
+                     <strong>Toute la journée:</strong> <br>
+                      Foire de pays, artisanat, produits régionaux, végétaux, vide-greniers.
+                      Fête médiévale avec "Les Faydits d'Oc", campement, combats, troubadours.
+                      Animations enfants, jeux, maquillage, mini ferme, etc....
+                    </p>
+                 </div>
+                 <footer class="card__footer">
+                    <span class="icon--time"> <strong> LINAC</strong></span> 
+                    <span class="icon--comment"></span><a href="LIEN"> 65 10 85 41 ou 06 51 73 01 57</a>
+                 </footer>
+              </article>
+
+              <article class="card">
+               <div class="card__thumb">
+                 <img src="https://api.cloudly.space/resize/clip/1200/760/75/aHR0cDovL2NkdDQ2Lm1lZGlhLnRvdXJpbnNvZnQuY29tL3VwbG9hZC9DYXB0dXJlLWQtZWNyYW4tMjAyMy0wNS0wMy1hLTEzLjIzLjE1LnBuZw==/image.jpg" alt="">
+               </div>
+              <div class="card__date">
+                 <span class="card__date__day">23</span>
+                 <span class="card__date__month">Juin</span>
+              </div> 
+              <div class="heuregrosse">
+                 <span>8h-00h</span>
+              </div>
+              <div class="card__body">
+                 <div class="card__category"><a href="LIEN">Fête de Village</a></div>
+                 <h2 class="card__title"><a href="LIEN">Leyme Fête Votive</a></h2>
+                 <p class="card__description">
+                    <strong>8h</strong>- concours de peche  <br>         
+                    <strong>11h</strong>   - huitres et vin blanc <br>
+                    <strong>13h</strong>  - expo véhicules anciens <br>
+                    <strong>15h</strong>  - spectacles enfants   
+                    <strong>19h30</strong> - apéro bandas
+                    <strong>20h</strong> - repas dansant
+                    <strong>23</strong>- feux d'artifice
+                    <strong>8h</strong>- concours de peche  <br>         
+                    <strong>11h</strong>   - huitres et vin blanc <br>
+                    <strong>13h</strong>  - expo véhicules anciens <br>
+                    <strong>15h</strong>  - spectacles enfants   
+                    <strong>19h30</strong> - apéro bandas
+                    <strong>20h</strong> - repas dansant
+                    <strong>23</strong>- feux d'artifice
+                   
+                 </p>
+              </div>
+              <footer class="card__footer">
+                 <span class="icon--time"> <strong> Leyme 46170</strong></span> 
+                 <span class="icon--comment"></span><a href="LIEN"> 65 10 85 41 ou 06 51 73 01 57</a>
+              </footer>
+           </article>
+             
+           
+           <article class="card">
+            <div class="card__thumb">
+              <img src="" alt="">
+            </div>
+           <div class="card__date">
+              <span class="card__date__day">21</span>
+              <span class="card__date__month">Juin</span>
+           </div> 
+           <div class="heuregrosse">
+              <span>8h-00h</span>
+           </div>
+           <div class="card__body">
+              <div class="card__category"><a href="LIEN">Fête de Village</a></div>
+              <h2 class="card__title"><a href="LIEN">Leyme Fête Votive</a></h2>
+              <p class="card__description">
+                 <strong>8h</strong>- concours de peche  <br>         
+                 <strong>11h</strong>   - huitres et vin blanc <br>
+                 <strong>13h</strong>  - expo véhicules anciens <br>
+                 <strong>15h</strong>  - spectacles enfants   
+                 <strong>19h30</strong> - apéro bandas
+                 <strong>20h</strong> - repas dansant
+                 <strong>23</strong>- feux d'artifice
+                 <strong>8h</strong>- concours de peche  <br>         
+                 <strong>11h</strong>   - huitres et vin blanc <br>
+                 <strong>13h</strong>  - expo véhicules anciens <br>
+                 <strong>15h</strong>  - spectacles enfants   
+                 <strong>19h30</strong> - apéro bandas
+                 <strong>20h</strong> - repas dansant
+                 <strong>23</strong>- feux d'artifice
+              </p>
+           </div>
+           <footer class="card__footer">
+              <span class="icon--time"> <strong> Leyme 46170</strong></span> 
+              <span class="icon--comment"></span><a href="LIEN"> 65 10 85 41 ou 06 51 73 01 57</a>
+           </footer>
+        </article>
+             
+
+ 
+
+
+            </div>
+            <button class="carousel__button carousel__button--left carousel__button--2">&lt;</button>
+            <button class="carousel__button carousel__button--right carousel__button--2">&gt;</button>
+        </div>
+    </div>
+
+          
+
+    
+    <script>
+// Fonction pour trier les cartes par date
+function sortCardsByDate() {
+  const cardsContainer = document.querySelector('.carousel__images');
+  const cards = Array.from(cardsContainer.getElementsByClassName('card'));
+
+  cards.sort((a, b) => {
+    const dateA = getDateFromCard(a);
+    const dateB = getDateFromCard(b);
+    return dateA - dateB;
+  });
+
+  cards.forEach(card => cardsContainer.appendChild(card));
+}
+function getDateFromCard(card) {
+  const dateElement = card.querySelector('.card__date');
+  const day = dateElement.querySelector('.card__date__day').textContent;
+  const month = dateElement.querySelector('.card__date__month').textContent;
+
+  // Convertir le mois de texte en valeur numérique (ici, en utilisant un simple objet de correspondance)
+  const monthMapping = {
+    'Janvier': 0,
+    'Février': 1,
+    'Mars': 2,
+    'Avril': 3,
+    'Mai': 4,
+    'Juin': 5,
+    'Juillet': 6,
+    'Août': 7,
+    'Septembre': 8,
+    'Octobre': 9,
+    'Novembre': 10,
+    'Décembre': 11
+  };
+  const monthIndex = monthMapping[month];
+
+  // Créer une date avec l'année actuelle (vous pouvez ajuster cela si nécessaire)
+  const year = new Date().getFullYear();
+
+  // Attention, les mois sont indexés à partir de zéro dans JavaScript (0 = janvier, 1 = février, etc.)
+  return new Date(year, monthIndex, day);
+}
+
+
+
+// Fonction pour obtenir l'index du mois à partir du nom du mois
+function getMonthIndex(monthName) {
+  const monthNames = [
+    'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+    'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+  ];
+  return monthNames.indexOf(monthName);
+}
+
+// Fonction pour supprimer les cartes dont la date est dépassée
+function removeExpiredCards() {
+  const currentDate = new Date();
+  const yesterday = new Date(currentDate);
+  yesterday.setDate(yesterday.getDate() - 1); // Obtenir la date d'hier
+
+  const cardsContainer = document.querySelector('.carousel__images');
+  const cards = Array.from(cardsContainer.getElementsByClassName('card'));
+
+  const validCards = cards.filter(card => {
+    const cardDay = parseInt(card.querySelector('.card__date__day').textContent);
+    const cardMonth = card.querySelector('.card__date__month').textContent;
+    const cardDate = new Date(currentDate.getFullYear(), getMonthIndex(cardMonth), cardDay);
+    return cardDate > yesterday; // Supprimer uniquement les cartes datées d'hier
+  });
+
+  // Supprimer toutes les cartes du conteneur
+  cardsContainer.innerHTML = '';
+
+  // Ajouter les cartes valides dans le conteneur
+  validCards.forEach(card => cardsContainer.appendChild(card));
+}
+
+
+// Appeler les fonctions pour trier les cartes et supprimer les cartes expirées
+sortCardsByDate();
+removeExpiredCards();
+
+
+
+
+// Fonction pour trier les cartes par date dans le deuxième carrousel
+function sortCardsByDate2() {
+  const cardsContainer = document.querySelector('.carousel__images--2');
+  const cards = Array.from(cardsContainer.getElementsByClassName('card'));
+
+  cards.sort((a, b) => {
+    const dateA = getDateFromCard(a);
+    const dateB = getDateFromCard(b);
+    return dateA - dateB;
+  });
+
+  cards.forEach(card => cardsContainer.appendChild(card));
+}
+
+// Fonction pour supprimer les cartes expirées dans le deuxième carrousel
+function removeExpiredCards2() {
+  const currentDate = new Date();
+  const yesterday = new Date(currentDate);
+  yesterday.setDate(yesterday.getDate() - 1); // Obtenir la date d'hier
+
+  const cardsContainer = document.querySelector('.carousel__images--2');
+  const cards = Array.from(cardsContainer.getElementsByClassName('card'));
+
+  const validCards = cards.filter(card => {
+    const cardDay = parseInt(card.querySelector('.card__date__day').textContent);
+    const cardMonth = card.querySelector('.card__date__month').textContent;
+    const cardDate = new Date(currentDate.getFullYear(), getMonthIndex(cardMonth), cardDay);
+    return cardDate > yesterday; // Supprimer uniquement les cartes datées d'hier
+  });
+
+  // Supprimer toutes les cartes du conteneur
+  cardsContainer.innerHTML = '';
+
+  // Ajouter les cartes valides dans le conteneur
+  validCards.forEach(card => cardsContainer.appendChild(card));
+}
+
+// Appeler les fonctions pour trier les cartes et supprimer les cartes expirées dans le deuxième carrousel
+sortCardsByDate2();
+removeExpiredCards2();
+
+</script>   
+                 
+<script src="script.js"></script>
+</body>
+</html>
